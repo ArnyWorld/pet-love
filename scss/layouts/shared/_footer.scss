@@ -71,13 +71,18 @@
         padding: 1.5rem 3rem;
         background-color: var.$colorBlack;
         @include mixin.littleDevice{
-            padding: 1.5rem 2rem;
+            padding: 1.5rem 0.2rem;
+            justify-content: center;
         }
         &__copy{
             @include mixin.text(1rem, var.$colorLight, var.$fontSecondary, left);
+            
         }
         &__networks{
             display: flex;
+            @include mixin.littleDevice{
+                display: none;
+            }
         }
         &__link{
             margin-right: 2rem;

@@ -725,7 +725,8 @@ html {
 }
 @media (max-width: 768px) {
   .footer .footerBottom {
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 0.2rem;
+    justify-content: center;
   }
 }
 .footer .footerBottom__copy {
@@ -736,6 +737,11 @@ html {
 }
 .footer .footerBottom__networks {
   display: flex;
+}
+@media (max-width: 768px) {
+  .footer .footerBottom__networks {
+    display: none;
+  }
 }
 .footer .footerBottom__link {
   margin-right: 2rem;
