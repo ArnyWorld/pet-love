@@ -1,0 +1,45 @@
+@use '../../base/variables' as var;
+@use '../../base/mixins' as mixin;
+@use '../../base/global';
+
+.networks{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0.5rem 0.5rem 0;
+    background-color: rgba(0,0,0,.7);
+    border-top-right-radius:6px;
+    border-bottom-right-radius:6px;
+    position: fixed;
+    z-index: 100;
+    top: 45%;
+    @include mixin.littleDevice{
+        display: none;
+    }
+}
+.network{
+    position: relative;
+    &:nth-child(1) &__link{
+        // width: 40px;
+        // height: 40px;
+        background-color: #25D366;
+        color: var.$colorWhite;
+        font-size: 2rem;
+        padding: 0 0.5rem;
+    }
+    &:nth-child(2) &__link{
+        // width: 40px;
+        // height: 40px;
+        background-color: #C13584;
+        color: var.$colorWhite;
+        font-size: 2rem;
+        padding: 0 0.5rem;
+    }
+    &:nth-child(3) &__link{
+        // width: 40px;
+        // height: 40px;
+        background-color: #FF0000;
+        color: var.$colorWhite;
+        font-size: 1.6rem;
+        padding: 0 0.5rem;
+    }
+}

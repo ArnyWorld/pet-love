@@ -1,0 +1,49 @@
+@use '../../base/variables' as var;
+@use '../../base/mixins' as mixin;
+
+.mainHome{
+    .historyContainer{
+        background-color: var.$colorGray;
+        padding: 4rem 0;
+
+        .history{
+            display: flex;
+            justify-content: space-evenly;
+            &__title{
+                @include mixin.text(3rem, var.$colorDark, var.$fontPrimary, left);
+                margin-bottom: 2rem;
+            }
+            &__text{
+                @include mixin.text(1.2rem, var.$colorText, var.$fontSecondary, left);
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+            &__button{
+                @include mixin.button(var.$colorPrimary, var.$colorWhite, 1rem, 5rem);           
+                align-self: flex-start;
+                margin-bottom: 1.5rem;            
+            }
+            &__content{
+                width: 40%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                @include mixin.littleDevice{
+                    width: 100%;    
+                }
+            }
+            &__image{
+                height: 500px;
+                @include mixin.littleDevice{
+                    display: none    
+                }
+            }
+            &__phone{
+                @include mixin.text(1rem, var.$colorPrimary, var.$fontSecondary, left);
+            }
+            &__icon{
+                margin-right: 1rem;
+            }
+        }
+    }
+}

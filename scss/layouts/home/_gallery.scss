@@ -1,0 +1,51 @@
+@use '../../base/variables' as var;
+@use '../../base/mixins' as mixin;
+
+.galleryContainer{
+    margin-bottom: 2.5rem;
+    display: grid;
+    grid-template-areas:
+    "husky1 cat1 dog1"
+    "husky2 cat2 cat2";
+    @include mixin.mediumDevice{
+        grid-template-areas:
+        "husky1 cat1"
+        "dog1 husky2"
+        "cat2 cat2";   
+    }
+    @include mixin.littleDevice{
+        grid-template-areas:
+        "husky1"
+        "cat1"
+        "dog1"
+        "husky2"
+        "cat2"
+        "cat2";
+        
+    }
+
+    &__link{
+        height: 450px;
+    }
+    &__link:nth-child(1){
+        grid-area: husky1;
+    }
+    &__link:nth-child(2){
+        grid-area: cat1;
+    }
+    &__link:nth-child(3){
+        grid-area: dog1;
+    }
+    &__link:nth-child(4){
+        grid-area: husky2;
+    }
+    &__link:nth-child(5){
+        grid-area: cat2;
+    }
+    &__image{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+}

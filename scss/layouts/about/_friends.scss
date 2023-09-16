@@ -1,0 +1,21 @@
+@use '../../base/variables' as var;
+@use '../../base/mixins' as mixin;
+
+.mainAbout{
+    .friendsContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2.5rem;
+        &__title{
+            @include mixin.text(3rem, var.$colorDark, var.$fontPrimary, center);
+            margin-bottom: 1.5rem;
+        }
+        &__video{
+            @include mixin.mediumDevice{
+                width: 100%;
+            }
+        }
+    }
+
+}

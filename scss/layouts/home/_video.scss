@@ -1,0 +1,62 @@
+@use '../../base/variables' as var;
+@use '../../base/mixins' as mixin;
+@use '../../base/global';
+
+.headerHome{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    &::after{
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.6);
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    video{
+        width: auto;
+        display: block;
+        object-position: center;
+    }
+}
+
+.header{
+    &__content{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        padding: 0 1rem;
+ 
+    }
+    &__title{
+        font-family: var.$fontPrimary;
+        font-weight: 700;
+        color: var.$colorLight;
+        text-transform: uppercase;
+        font-size: 3rem;
+        margin-bottom: 1.1rem;
+        @include mixin.littleDevice{
+            text-align: center;
+        }
+    }
+    &__text{
+        font-family: var.$fontSecondary;
+        color: var.$colorLight;
+        font-size: 1.3rem;
+        margin-bottom: 1.2rem;
+        @include mixin.mediumDevice{
+            text-align: center;
+        }
+    }
+    &__button{
+        @include mixin.button(var.$colorPrimary,var.$colorWhite, 1rem, 3rem);
+    }
+}

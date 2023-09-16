@@ -1,0 +1,49 @@
+@use '../../base/variables' as var;
+@use '../../base/mixins' as mixin;
+
+.mainContact{
+    background-color: var.$colorGray;
+    padding: 3rem 0;
+    .titleContact{
+        @include mixin.text(3rem, var.$colorDark, var.$fontPrimary, left);
+        margin-bottom: 2rem;
+    }
+    .contactContainer{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        
+        &__image{
+            width: 475px;
+            @include mixin.mediumDevice{
+                display: none;
+            }
+        }
+    }
+    .formContact{
+        width: 30%;
+        padding: 2rem;
+        border: 1px solid var.$colorPrimary;
+        background-color: var.$colorWhite;
+        @include mixin.mediumDevice{
+            width: 100%;    
+        }
+        &__label{
+            @include mixin.text(1.2rem, var.$colorDark, var.$fontPrimary, left);
+            margin-bottom: 0.7rem;
+            display: inline-block;
+        }
+        &__input{
+            display: block;
+            padding: 0.5rem;
+            width: 100%;
+        }
+        &__group{
+            margin-bottom: 1.5rem;
+        }
+        &__button{
+            @include mixin.button(var.$colorPrimary, var.$colorWhite, 1rem, 4rem);
+            border-radius: 0.3rem;
+        }
+    }
+}

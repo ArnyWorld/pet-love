@@ -1,0 +1,41 @@
+@use '../../base/variables' as var;
+@use '../../base/mixins' as mixin;
+
+.headerAbout{
+    width: 100%;
+    height: 65vh;
+    background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url(../img/aboutHeader.jpg);
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 2.5rem;
+    @include mixin.littleDevice  {
+        height: 100vh;
+        min-height: fit-content;
+    }
+    .header__content{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        z-index: 10;
+        padding: 0 5rem;
+        @include mixin.littleDevice{
+            padding: 0 3.5rem;
+        }
+    }
+    .header__text{
+        width: 500px;
+        @include mixin.mediumDevice{
+            text-align: left;
+            width: 100%;
+        }
+        @include mixin.littleDevice{
+            text-align: center;
+        }
+    }
+
+}

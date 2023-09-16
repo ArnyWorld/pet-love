@@ -1,0 +1,143 @@
+@use '../../base/variables' as var;
+@use '../../base/mixins' as m;
+
+.mainHome{
+    .welcome{
+        background-color:var.$colorGray;
+        padding: 6rem 0;
+        margin-bottom: 2.5rem;
+        .welcomeStore{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2,1fr);
+            gap: 3rem;
+            @include m.mediumDevice{
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4,auto);
+                gap: 2rem;
+            }
+            @include m.littleDevice{
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            &__ourStore{
+                grid-row: 1 / 3;
+                grid-column: 1 / 3;
+
+                border-radius: 1rem;
+                padding: 2.5rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                background-color: var.$colorWhite;
+                @include m.littleDevice{
+                    grid-row: 1 / 3;
+                    grid-column: 1 / 2;    
+                }
+
+            }
+            &__title{
+                @include m.text(3rem, var.$colorDark, var.$fontPrimary, left);
+                margin-bottom: 1rem;
+                span{
+                    color: var.$colorPrimary;
+                }
+            }
+            &__text{
+                @include m.text(1.2rem, var.$colorText, var.$fontSecondary, left);
+                line-height: 1.6;
+                margin-bottom: 1rem;
+            }
+            &__listContainer{
+                
+            }
+            &__list{
+                @include m.text(1.2rem, var.$colorText, var.$fontSecondary, left);
+                margin-bottom: 1rem;
+                &::before{
+                    content: '\f058';
+                    font-family: 'Font Awesome 5 Free';
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    color: var.$colorPrimary;
+                    margin-right: 0.7rem;
+                }
+            }
+
+            .training{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border-radius: 1rem;
+                padding: 1.5rem;
+                cursor: pointer;
+                transition: transform .5s ease;
+                background-color: var.$colorWhite;
+                &:hover{
+                    transform: scale(1.03);
+                }
+
+                &__icon{
+                    color: var.$colorPrimary;
+                    font-size: 3rem;
+                    margin-bottom: 1rem;
+                }
+                &__title{
+                    @include m.text(1.5rem, var.$colorPrimary, var.$fontPrimary, center);
+
+                }
+                &__text{
+                    @include m.text(1.1rem,var.$colorText, var.$fontSecondary, center);
+                    line-height: 1.6;
+                }
+            }
+
+            .training:nth-child(1){
+                grid-column: 3 / 4;
+                grid-row:1 /2 ;
+                @include m.mediumDevice{
+                    grid-row: 3 / 4;
+                    grid-column: 1 / 2;    
+                }
+            }
+            .training:nth-child(2){
+                grid-column: 4 / 5 ;
+                grid-row: 1 / 2;
+                @include m.mediumDevice{
+                    grid-row: 3 / 4;
+                    grid-column: 2 / 3;    
+                }
+                @include m.littleDevice{
+                    grid-row: 4 / 5;
+                    grid-column: 1 / 2;    
+                }
+            }
+            .training:nth-child(3){
+                grid-column: 3 / 4;
+                grid-row: 2 / 3;
+                @include m.mediumDevice{
+                    grid-row: 4 / 5;
+                    grid-column: 1 / 2;    
+                }
+                @include m.littleDevice{
+                    grid-row: 5 / 6;
+                    grid-column: 1 / 2;    
+                }
+            }
+            .training:nth-child(4){
+                grid-column: 4 / 5;
+                grid-row: 2 / 3;
+                @include m.mediumDevice{
+                    grid-row: 4 / 5;
+                    grid-column: 2 / 3;    
+                }
+                @include m.littleDevice{
+                    grid-row: 6 / 7;
+                    grid-column: 1 / 2;    
+                }
+            }
+
+        }
+}
+}

@@ -1,0 +1,87 @@
+@use '../../base/variables' as var;
+@use '../../base/mixins' as mixin;
+
+.footer{
+    // @include mixin.background(url(../img/footer-min.jpg), auto);
+    padding: 5rem 0 0 0;
+    background: linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url(../img/footer-min.jpg) ;
+    background-attachment: fixed;
+    background-position: center;
+    .footerTop{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include mixin.littleDevice{
+            flex-direction: column;
+            
+        }
+        &__logo{
+            width: 30%;
+            display: flex;
+            align-items: center;
+            @include mixin.text(1.5rem, var.$colorWhite, var.$fontPrimary, left);
+            text-transform: uppercase;
+            @include mixin.littleDevice{
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 2rem;
+            }
+        }
+        &__image{
+            width: 75px;
+            margin-right: 1rem;
+        }
+        &__contact{
+            width: 30%;
+            @include mixin.littleDevice{
+                width: 100%;
+                margin-bottom: 1.5rem;
+            }
+        }
+        &__about{
+            width: 30%;
+            @include mixin.littleDevice{
+                width: 100%;
+                margin-bottom: 1.5rem;
+            }
+        }
+        &__title{
+            @include mixin.text(1.2rem, var.$colorPrimary, var.$fontPrimary, left);
+            margin-bottom: 1.5rem;
+        }
+        &__info{
+            @include mixin.text(1rem, var.$colorLight, var.$fontSecondary, left);
+            margin-bottom: 1.3rem;
+        }
+        &__text{
+            @include mixin.text(1rem, var.$colorLight, var.$fontSecondary, left);
+            line-height: 1.6;
+        }
+        &__icon{
+            color: var.$colorPrimary;
+            margin-right: 1rem;
+            @include mixin.littleDevice{
+                margin-right: 0.3rem;
+            }
+        }
+    }
+    .footerBottom{
+        display: flex;
+        justify-content: space-between;
+        padding: 1.5rem 3rem;
+        background-color: var.$colorBlack;
+        @include mixin.littleDevice{
+            padding: 1.5rem 2rem;
+        }
+        &__copy{
+            @include mixin.text(1rem, var.$colorLight, var.$fontSecondary, left);
+        }
+        &__networks{
+            display: flex;
+        }
+        &__link{
+            margin-right: 2rem;
+            color: var.$colorLight;
+        }
+    }
+}

@@ -1,0 +1,63 @@
+@use '../../base/variables' as var;
+@use '../../base/mixins' as m;
+
+.packageContainer{
+    margin-bottom: 3rem;
+    &__title{
+        @include m.text(3rem, var.$colorDark, var.$fontPrimary, left);
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+    }
+    .packages{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+        @include m.mediumDevice{
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-flow: row;
+        }
+        @include m.littleDevice{
+            grid-template-columns: repeat(1, 1fr);
+            grid-auto-flow: row;
+        }
+        .package{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid var.$colorPrimary;
+            padding: 3.5rem 1.3rem;
+            @include m.mediumDevice{
+                &:last-child{
+                    grid-column: 1 / 3;
+                }
+            }
+            @include m.littleDevice{
+                &:last-child{
+                    grid-column: 1 / 2;
+                }
+            }
+            &__image{
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                object-fit: cover;
+                object-position: center;
+                margin-bottom: 1.3rem;
+            }
+            &__title{
+                @include m.text(1.3rem, var.$colorPrimary, var.$fontPrimary, left);
+                margin-bottom: 1.5rem;
+            }
+            &__text{
+                @include m.text(1.2rem, var.$colorText, var.$fontSecondary, center);
+                margin-bottom: 1.3rem;
+            }
+            &__button{
+                @include m.button(var.$colorPrimary, var.$colorWhite, 1rem, 5rem);
+                
+            }
+    
+        } 
+    }
+}

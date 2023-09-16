@@ -1,0 +1,83 @@
+@use '../../base/variables' as var;
+@use '../../base/mixins' as mixin;
+@use '../../base/global';
+
+.navigation{
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    background-color: transparent;
+    transition: background-color .5s ease;
+    @include mixin.littleDevice{
+        padding: 1rem 1.5rem; 
+    }
+    &--scroll{
+        background-color: var.$colorPrimary;
+        z-index: 1000;
+        
+    }
+    &__logo{
+        text-transform: uppercase;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        @include mixin.text(1.5rem, var.$colorWhite, var.$fontPrimary, left);
+        z-index: 100;
+    }
+    &__image{
+        width: 75px;
+        margin-right: 1rem;
+        color: var.$colorWhite;
+    }
+    &__menu{
+        font-size: 2rem;
+        color: var.$colorWhite;
+        cursor: pointer;
+        display: none;
+        @include mixin.mediumDevice{
+            display: block;
+            z-index: 100;
+        }
+    }
+    &__listGroup{
+        display: flex;
+        transition: transform .5s ease;
+        @include mixin.mediumDevice{
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding-top: 10rem;
+            padding-left: 4rem;
+            flex-direction: column;
+            background-color: rgba(0,0,0,.5);
+            backdrop-filter: blur(1rem);
+            transform: translateX(-100%);
+            opacity: 0;
+            transition: transform .5s ease, opacity .5s ease;
+            &--active{
+                transform: translateX(0%);
+                opacity: 1;
+            }
+        }     
+    }
+
+    &__list{
+        margin-right: 4rem;
+        @include mixin.mediumDevice{
+            margin-right: 3rem;
+            margin-bottom: 4rem;
+        }
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+    &__link{
+        @include mixin.text(1.3rem, var.$colorWhite, var.$fontPrimary, left);
+    }
+}

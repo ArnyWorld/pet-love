@@ -1,0 +1,30 @@
+@use '../../base/variables' as var;
+@use '../../base/mixins' as mixin;
+
+.mainAbout{
+    .alwaysContainer{
+        display: flex;
+        align-items: center;
+        margin-bottom: 2.5rem;
+        @include mixin.mediumDevice{
+            flex-direction: column
+        }
+        &__title{
+            @include mixin.text(3rem, var.$colorDark, var.$fontPrimary, left);
+            margin-bottom: 2rem;
+        }
+        &__text{
+            @include mixin.text(1.2rem, var.$colorText, var.$fontSecondary, left);
+            line-height: 1.6;
+            @include mixin.mediumDevice{
+                margin-bottom: 1.5rem;
+            }
+        }
+        &__image{
+            width: 450px;
+            @include mixin.mediumDevice{
+                width: 80%;
+            }
+        }
+    }
+}
